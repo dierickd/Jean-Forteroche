@@ -2,14 +2,14 @@ body {
 	background: #D8DFD9;
 }
 header {
-  background: url("/P4/public/img/cover-header.jpg");
+  background: url("/P4/Jean-forteroche/public/img/cover-header.jpg");
   -webkit-background-size: cover;
   background-size: cover;
   width: 100%;
   margin-bottom: 15px;
 }
-#nav {
-  box-shadow: 0px 1px 15px rgb(0, 86, 27);
+.navbar-default .navbar-toggle .icon-bar {
+  background: #FEFEFE;
 }
 .navbar-default .navbar-brand {
   color: rgb(0, 86, 27);
@@ -17,6 +17,10 @@ header {
 .navbar {
   background: none;
   border: none;
+  -webkit-transition: all ease 300ms;
+  -o-transition: all ease 300ms;
+  -ms-transition: all ease 300ms;
+  transition: all ease 300ms;
 }
 .container a {
   color: rgb(0, 86, 27);
@@ -37,8 +41,8 @@ header {
   height: 48px;
 }
 header .header-bottom {
-  height: 150px;
-  padding-top: 20px;
+  height: 350px;
+  padding-top: 150px;
   color: rgb(0, 86, 27);
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -66,7 +70,7 @@ header .header-bottom {
   border-bottom: 1px solid #18391E;
   padding: 10px 0 0 20px;
   color: #FEFEFE;
-  background-color: rgb(0, 86, 27);
+  background-color: rgba(0, 86, 27, 0.8);
   text-transform: uppercase;
 }
 .footer-episode p {

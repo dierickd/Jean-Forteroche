@@ -30,5 +30,22 @@
             return false;
         });
     </script>
+    <script>
+    $(document).ready(function(){
+      $(window).scroll(function() { // check if scroll event happened
+        if ($(document).scrollTop() > 50) { // check if user scrolled more than 50 from top of the browser window
+          $(".navbar-fixed-top").css("background-color", "#FEFEFE"); 
+          $(".navbar-default .navbar-nav>li>a").css("color", "rgb(0, 86, 27)");
+          $("#nav").css("box-shadow", "0px 1px 15px rgb(0, 86, 27)"); 
+          $(".navbar-default .navbar-toggle .icon-bar").css("background", "rgb(0, 86, 27)");
+        } else {
+          $(".navbar-fixed-top").css("background-color", "transparent");
+          $(".navbar-default .navbar-nav>li>a").css("color", "#FEFEFE");
+          $("#nav").css("box-shadow", "none"); 
+          $(".navbar-default .navbar-toggle .icon-bar").css("background", "#FEFEFE");
+        }
+      });
+    });
+</script>
 </body>
 </html>
