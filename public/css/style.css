@@ -8,9 +8,6 @@ header {
   width: 100%;
   margin-bottom: 15px;
 }
-.navbar-default .navbar-toggle .icon-bar {
-  background: #FEFEFE;
-}
 .navbar-default .navbar-brand {
   color: rgb(0, 86, 27);
 }

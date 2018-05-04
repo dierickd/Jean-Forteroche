@@ -5,6 +5,7 @@ require_once VIEW.'View.php';
 class Controllerepisode
 {
 	private $_episodeManager;
+	private $_episodeComment;
 	private $_view;
 
 	public function __construct($url)

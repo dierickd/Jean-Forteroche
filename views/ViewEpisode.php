@@ -27,7 +27,16 @@
 				<label for="comment">commentaire:</label>
 				<textarea id="comment" required></textarea>
 			</div>
+			<hr>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
+	</div>
+</div>
+<div class="container">
+	<div class="header-episode">
+		<p>Commentaires</p>
+	</div>
+	<div class="body-episode">
+		
 	</div>
 </div>
