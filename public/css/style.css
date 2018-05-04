@@ -1,0 +1,85 @@
+body {
+	background: #D8DFD9;
+}
+header {
+  background: url("/P4/public/img/cover-header.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: 15px;
+}
+#nav {
+  box-shadow: 0px 1px 15px rgb(0, 86, 27);
+}
+.navbar-default .navbar-brand {
+  color: rgb(0, 86, 27);
+}
+.navbar {
+  background: none;
+  border: none;
+}
+.container a {
+  color: rgb(0, 86, 27);
+}
+.container a:hover {
+  color: #18391E;
+  text-decoration: none;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #FEFEFE;
+}
+ .navbar-default .navbar-brand:hover {
+  color: #18391E;
+ }
+.navbar-default .navbar-nav>li>a:hover {
+  border-bottom: 2px solid #18391E;
+  color: #18391E;
+  height: 48px;
+}
+header .header-bottom {
+  height: 150px;
+  padding-top: 20px;
+  color: rgb(0, 86, 27);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.header-book {
+  border-bottom: 2px solid #18391E;
+  text-align: center;
+  padding: 6px 0 18px 0;
+  margin-bottom: 25px;
+  color: rgb(0, 86, 27);
+  background-color: #FEFEFE;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.body-episode p, .body-episode{
+  padding: 20px;
+  text-align: justify;
+  background-color: #FEFEFE;
+}
+.body-episode {
+  margin-bottom: 40px;
+}
+.header-episode {
+  border-left: 5px solid #18391E;
+  border-bottom: 1px solid #18391E;
+  padding: 10px 0 0 20px;
+  color: #FEFEFE;
+  background-color: rgb(0, 86, 27);
+  text-transform: uppercase;
+}
+.footer-episode p {
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+.footer-episode a {
+  margin-left: 20px;
+}
+form {
+  width: 50%;
+}
+form textarea, form input {
+  width: 100%;
+  height: 70px;
+}
