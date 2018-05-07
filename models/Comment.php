@@ -2,17 +2,16 @@
 
 class Comment extends Model
 {
-	private $_idComment;
-	private $_contentComment;
-	private $_authorComment;
-	private $_dateComment;
+	private $_idCom;
+	private $_contentCom;
+	private $_authorCom;
+	private $_dateCom;
 	private $_valCom;
 	private $_chapId;
 
 	public function __construct(array $data)
 	{
 		$this->hydrate($data);
-		var_dump($data);
 	}
 
 	// SETTER
@@ -21,7 +20,7 @@ class Comment extends Model
 		$id = (int) $id;
 		if($id > 0)
 		{
-			$this->_idComment = $id;
+			$this->_idCom = $id;
 		}
 	}
 	public function setChapterId($idC)
@@ -36,7 +35,7 @@ class Comment extends Model
 	{
 		if(is_string($author))
 		{
-			$this->_authorComment = $author;
+			$this->_authorCom = $author;
 		}
 	}
 	public function setValComment($validate)
@@ -50,22 +49,22 @@ class Comment extends Model
 	{
 		if(is_string($content))
 		{
-			$this->_contentComment = $content;
+			$this->_contentCom = $content;
 		}
 	}
 	public function setDateComment($date)
 	{
-		$this->_dateComment = $date;
+		$this->_dateCom = $date;
 	}
 
 	// GETTERS
 	public function getIdComment()
 	{
-		return $this->_idComment;
+		return $this->_idCom;
 	}
 	public function getAuthorComment()
 	{
-		return $this->_authorComment;
+		return $this->_authorCom;
 	}
 	public function getValidate()
 	{
@@ -73,11 +72,11 @@ class Comment extends Model
 	}
 	public function getContentComment()
 	{
-		return $this->_contentComment;
+		return $this->_contentCom;
 	}
 	public function getDateComment()
 	{
-		return $this->_dateComment;
+		return $this->_dateCom;
 	}
 	public function getChapId()
 	{

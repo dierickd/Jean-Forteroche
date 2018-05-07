@@ -16,26 +16,20 @@ Class Rooter
 				require_once(MODEL.$class.'.php');
 			});
 
-			$url = '';
 			if (isset($_GET['action']))
 			{
-				$url = explode('/', filter_var($_GET['action'], FILTER_SANITIZE_URL));
-				$controller = ucfirst(strtolower($url[0]));
-				$controllerClass = "controller".$controller;
-				$controllerFile = CONTROLER.$controllerClass.".php";
-
-				if(file_exists($controllerFile))
-				{
-					require_once $controllerFile;
-					$this->_ctrl = new $controllerClass($_GET);
+				$action = $_GET['action'];
+				if($action = 'chapter') {
+					$this->url($action);
 				}
-				else 
+				elseif ($action = 'episode') {
+					$this->url($action);
+				} else 
 					throw new Exception('Page introuvable');
 			}
 			else
 			{
-				require_once CONTROLER.'ControllerHome.php';
-				$this->_ctrl = new controllerHome($url);
+				$this->url($_GET['action'] = 'home');
 			}
 		}
 		catch (Exception $e)
@@ -48,6 +42,17 @@ Class Rooter
 
 	private function url($url)
 	{
-
+		$url = '';
+		$url = explode('/', filter_var($_GET['action'], FILTER_SANITIZE_URL));
+		$controller = ucfirst(strtolower($url[0]));
+		$controllerClass = "controller".$controller;
+		$controllerFile = CONTROLER.$controllerClass.".php";
+		if(file_exists($controllerFile))
+		{
+			require_once $controllerFile;
+			$this->_ctrl = new $controllerClass($_GET);
+		}
+		else 
+			throw new Exception('Page introuvable');
 	}
 }

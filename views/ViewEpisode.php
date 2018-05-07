@@ -1,4 +1,3 @@
-
 <?php foreach($episode as $Ep) { ?>
 <?php if($Ep->getIdEpisode() == $_GET['id']) { ?>
 <?php $this->_t = $Ep->getTitleEpisode()." - Jean Forteroche" ?>
