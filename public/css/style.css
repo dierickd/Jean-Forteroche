@@ -77,7 +77,15 @@ header .header-bottom {
 .footer-episode a {
   margin-left: 20px;
 }
-form {
+.comment-users p {
+  padding: 5px 20px;
+}
+.comment {
+  padding: 15px 0;
+  margin-bottom: 20px;
+  background: #EFEFEF;
+}
+.frm-comment {
   width: 50%;
 }
 form textarea, form input {

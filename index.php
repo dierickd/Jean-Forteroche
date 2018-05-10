@@ -8,6 +8,7 @@ define('VIEW', RACINE.DS.'views'.DS); //mène au dossier View
 define('MODEL', RACINE.DS.'models'.DS); //mène au dossier Model
 define('CONTROLER', RACINE.DS.'controllers'.DS); //mène au dossier Controler
 define('PUB', RACINE.DS.'public'.DS); //mène au dossier Public
+define('BACK', RACINE.DS.'backend'.DS); //mène au dossier Public
 
 require_once CONTROLER.'rooter.php';
 

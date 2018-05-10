@@ -25,15 +25,6 @@ class Controllerepisode
 		$this->_view = new View('episode');
 		$this->_view->generate(array('episode' => $episode));
 	}
-	
-	private function comment()
-	{
-		$this->_episodeComment = new EpisodeComment;
-		$comment = $this->_episodeComment->getComment();
-
-		$this->_view = new View('episode');
-		$this->_view->generate(array('comment' => $comment));
-	}
 
 	private function controlData()
 	{
@@ -42,7 +33,6 @@ class Controllerepisode
 			if(isset($_GET['id']) && (int) $_GET['id'])
 			{
 				$this->episode();
-				$this->comment();
 			} else 
 				throw new Exception("Page introuvable 2");
 		} else 

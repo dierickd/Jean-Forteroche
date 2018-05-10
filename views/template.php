@@ -8,7 +8,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= URL.'public/css/style.css' ?>">
-
 </head>
 <body>
     <?= $content ?>
@@ -36,7 +35,7 @@
         if ($(document).scrollTop() > 50) { // check if user scrolled more than 50 from top of the browser window
           $(".navbar-fixed-top").css("background-color", "#FEFEFE"); 
           $(".navbar-default .navbar-nav>li>a").css("color", "rgb(0, 86, 27)");
-          $("#nav").css("box-shadow", "0px 1px 15px rgb(0, 86, 27)"); 
+          $("#nav").css("box-shadow", "0px 2px 25px rgb(120, 120, 120)"); 
           $(".navbar-default .navbar-toggle .icon-bar").css("background", "rgb(0, 86, 27)");
         } else {
           $(".navbar-fixed-top").css("background-color", "transparent");
