@@ -1,6 +1,6 @@
 <?php foreach($episode as $Ep) { ?>
 <?php if($Ep->getIdEpisode() == $_GET['id']) { ?>
-<?php $this->_t = $Ep->getTitleEpisode()." - Jean Forteroche" ?>
+<?php $this->_t = $Ep->getTitleEpisode()." - Jean Forteroche"; ?>
 <div class="container">
 	<div class="header-episode">
 		<p><?= $Ep->getTitleEpisode() ?></p>
@@ -11,8 +11,8 @@
 	<div class="footer-episode">
 		<p><?= $Ep->getAuthorEpisode() ?></p>
 	</div>
-	<?php } ?>
 </div>
+<?php break; } ?>
 <?php } ?>
 
 <div class="container">

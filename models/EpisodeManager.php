@@ -13,4 +13,3 @@ class EpisodeManager extends Model
 		return $this->getAll($sql, 'episode');
 	}
 }
-
