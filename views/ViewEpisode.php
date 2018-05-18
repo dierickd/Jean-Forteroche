@@ -1,6 +1,9 @@
 <?php foreach($episode as $Ep) { ?>
 <?php if($Ep->getIdEpisode() == $_GET['id']) { ?>
 <?php $this->_t = $Ep->getTitleEpisode()." - Jean Forteroche"; ?>
+<div class="header">
+	
+</div>
 <div class="container">
 	<div class="header-episode">
 		<p><?= $Ep->getTitleEpisode() ?></p>
@@ -12,7 +15,8 @@
 		<p><?= $Ep->getAuthorEpisode() ?></p>
 	</div>
 </div>
-<?php break; } ?>
+<?php break; 
+} ?>
 <?php } ?>
 
 <div class="container">
@@ -39,9 +43,12 @@
 		<p>Commentaires</p>
 	</div>
 	<div class="comment-users">
-		<?php foreach($episode as $Cp) {
-			if($Cp->getChapId() == $_GET['id']) { 
-				if(strtolower($Cp->getValCom()) == 'true') { ?>
+		<?php
+		$countCom = 0;
+		foreach($episode as $Cp) {
+			if($Cp->getChapId() == $_GET['id']) {
+				if(strtolower($Cp->getValCom()) == 'true') {
+					$countCom++; ?>
 				<div class="comment">
 					<div class="head-com">
 						<p><span class="glyphicon glyphicon-user"></span><i> Publié par <?= $Cp->getAuthorCom(); ?> le <?= $Cp->getDateCom(); ?></i></p>
@@ -49,10 +56,15 @@
 					</div>
 					<div class="container">
 						<form action="<?= URL.'backend/Report.php?id='.$Cp->getIdEpisode().'&idC='.$Cp->getIdCom() ?>" method="post">
-							<button class="btn btn-default">signaler <span class="glyphicon glyphicon-bell"></span></button>
+							<button class="btn btn-xs btn-danger">signaler <span class="glyphicon glyphicon-bell"></span></button>
 						</form>
 					</div>
 				</div>
-		<?php }; } } ?>
+			<?php }; } } 
+			if($countCom == 0) { ?>
+				<div class="comment">
+					<p><i>Il n'y a actuellement aucun commentaire !</i></p>
+				</div>
+			<?php } ?>
 	</div>
 </div>

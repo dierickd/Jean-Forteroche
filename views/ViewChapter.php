@@ -1,8 +1,13 @@
-<?php $this->_t = "Liste des chapitres"; ?>
+<?php $this->_t = "Liste des chapitres";
 
+foreach ($chapter as $chapters) { 
+if($chapters->getIdLib() == $_GET['id']) { ?>
 	<div class="header-book">
-		<h3>Title book</h3>
+		<h3><?= $chapters->getTitleLib() ?></h3>
 	</div>
+<?php }
+break; } ?>
+
 <div class="container">
 <?php 
 date_default_timezone_set('Europe/Paris');
@@ -19,7 +24,7 @@ if($chapters->getPublish() == 'true') { ?>
 			<hr/>
 			<div class="footer-episode">
 				<i><p>Par <?= $chapters->getAuthorChapter() ?> le <?= strftime("%d %B %Y", strtotime($chapters->getDateChapter())) ?></p></i>
-				<a class="btn btn-default" href="<?= '?action=episode&id='.$chapters->getIdChapter() ?>">Lire la suite</a>
+				<a class="btn btn-default" href="<?= URL.'episode/'.$chapters->getIdChapter() ?>">Lire la suite</a>
 			</div>
 		</div>
 <?php } } } else { ?>

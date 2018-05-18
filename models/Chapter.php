@@ -8,7 +8,9 @@ class Chapter extends Model
 	private $_authorChapter;
 	private $_date;
 	private $_publish;
-	private $_libraryId;
+
+	private $_libTitle;
+	private $_libId;
 
 	public function __construct(array $data)
 	{
@@ -23,15 +25,7 @@ class Chapter extends Model
 		{
 			$this->_idChapter = $id;
 		}
-	}
-	public function setlibraryId($libraryId)
-	{
-		$libraryId = (int) $libraryId;
-		if($libraryId > 0)
-		{
-			$this->_libraryId = $libraryId;
-		}
-	}
+	}	
 	public function setPublish($publish)
 	{
 		if(is_string($publish))
@@ -67,6 +61,22 @@ class Chapter extends Model
 	{
 		$this->_date = $date;
 	}
+	//**************
+	public function setTitle($libTitle)
+	{
+		if(is_string($libTitle))
+		{
+			$this->_libTitle = $libTitle;
+		}
+	}
+	public function setLibId($idLib)
+	{
+		$idLib = (int) $idLib;
+		if($idLib > 0)
+		{
+			$this->_libId = $idLib;
+		}
+	}	
 
 	// GETTERS
 	public function getIdChapter()
@@ -99,8 +109,12 @@ class Chapter extends Model
 		return $this->_publish;
 	}
 
-	public function getLibraryId()
+	public function getTitleLib()
 	{
-		return $this->_libraryId;
+		return $this->_libTitle;
+	}
+	public function getIdLib()
+	{
+		return $this->_libId;
 	}
 }

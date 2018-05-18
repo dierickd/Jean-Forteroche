@@ -7,14 +7,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.php"><span id="JF">Jean FORTEROCHE</span></a>
+				<a class="navbar-brand" href="<?= URL.'home' ?>"><span id="JF">Jean FORTEROCHE</span></a>
 			</div>
 			<div class="collapse navbar-collapse">
-				<ul class="pull-right nav navbar-nav">
-					<li> <a href="index.php">Accueil</a> </li>
-					<li> <a href="#">Mes oeuvres</a> </li>
-					<li> <a href="#">Galerie</a> </li>
-					<li> <a href="#">About</a> </li>
+				<ul class="nav navbar-nav">
+					<li><a href="<?= URL.'home' ?>">Accueil</a></li>
+					<li><a href="<?= URL.'about' ?>">à propos</a></li>
+					<li><a href="#oeuvre">Mes oeuvres</a></li>
+					<li><a href="#">Galerie</a></li>
 					<li><a href="">Administration</a></li>
 				</ul>
 			</div>

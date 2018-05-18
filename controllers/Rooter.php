@@ -22,7 +22,10 @@ Class Rooter
 				if($action = 'chapter') {
 					$this->url($action);
 				}
-				elseif ($action = 'episode') {
+				elseif($action = 'episode') {
+					$this->url($action);
+				} 
+				elseif($action = 'about') {
 					$this->url($action);
 				} else 
 					throw new Exception('Page introuvable');

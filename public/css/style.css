@@ -1,5 +1,6 @@
 body {
 	background: #D8DFD9;
+  overflow-x: hidden;
 }
 header {
   background: url("/P4/Jean-forteroche/public/img/cover-header.jpg");
@@ -9,7 +10,7 @@ header {
   margin-bottom: 15px;
 }
 .navbar-default .navbar-brand {
-  color: rgb(0, 86, 27);
+  color: rgb(133,109,77);
 }
 .navbar {
   background: none;
@@ -19,37 +20,67 @@ header {
   -ms-transition: all ease 300ms;
   transition: all ease 300ms;
 }
+.error img {
+  width: 10%;
+}
 .container a {
-  color: rgb(0, 86, 27);
+  color: rgb(133,109,77);
 }
 .container a:hover {
-  color: #18391E;
+  color: rgb(133,109,77);
   text-decoration: none;
 }
-.navbar-default .navbar-nav>li>a {
-  color: #FEFEFE;
+.navbar-fixed-top {
+  background-color: #FEFEFE;
 }
- .navbar-default .navbar-brand:hover {
-  color: #18391E;
- }
+#nav {
+  box-shadow: 0px 2px 25px rgb(120, 120, 120);
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background: rgb(0, 86, 27);
+}
+.navbar-default .navbar-nav>li>a {
+  color: rgb(133,109,77);
+  text-transform: uppercase;
+}
+.navbar-default .navbar-brand:hover {
+  color: rgb(133,109,77);
+}
 .navbar-default .navbar-nav>li>a:hover {
-  border-bottom: 2px solid #18391E;
-  color: #18391E;
-  height: 48px;
+  background: rgb(133,109,77);
+  color: #FEFEFE;
+  -webkit-transition: all ease 450ms;
+  -o-transition: all ease 450ms;
+  -ms-transition: all ease 450ms;
+  transition: all ease 450ms; 
+}
+header .header-bottom h1 {
+  display: inline-block;
+  background: rgba(210, 210, 210, 0.6);
+  padding: 15px 20px;
+  border-radius: 7px;
 }
 header .header-bottom {
-  height: 350px;
+  height: 450px;
   padding-top: 150px;
-  color: rgb(0, 86, 27);
+  color: rgb(133,109,77);
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+.about .row{
+  margin-top: 25px;
+}
+.about img {
+  max-height: 200px;
+  max-width: 200px;
+  border-radius: 100px;
+}
 .header-book {
-  border-bottom: 2px solid #18391E;
+  border-bottom: 2px solid rgb(133,109,77);
   text-align: center;
   padding: 6px 0 18px 0;
   margin-bottom: 25px;
-  color: rgb(0, 86, 27);
+  color: rgb(133,109,77);
   background-color: #FEFEFE;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -63,12 +94,13 @@ header .header-bottom {
   margin-bottom: 40px;
 }
 .header-episode {
-  border-left: 5px solid #18391E;
-  border-bottom: 1px solid #18391E;
+  border-left: 5px solid rgb(133,109,77);
+  border-bottom: 1px solid rgb(133,109,77);
   padding: 10px 0 0 20px;
   color: #FEFEFE;
-  background-color: rgba(0, 86, 27, 0.8);
+  background-color: rgba(133,109,77, 0.8);
   text-transform: uppercase;
+  margin-top: 35px;
 }
 .footer-episode p {
   padding-top: 0px;
@@ -84,6 +116,7 @@ header .header-bottom {
   padding: 15px 0;
   margin-bottom: 20px;
   background: #EFEFEF;
+  border-radius: 7px;
 }
 .frm-comment {
   width: 50%;
@@ -91,4 +124,18 @@ header .header-bottom {
 form textarea, form input {
   width: 100%;
   height: 70px;
+}
+.glyphicon-menu-up {
+  position: fixed;
+  right: -50px;
+  top: 88%;
+  color: #fefefe;
+  background: rgba(133,109,77, 0.9);
+  padding: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all ease 350ms;
+  -o-transition: all ease 350ms;
+  -ms-transition: all ease 350ms;
+  transition: all ease 350ms;
 }

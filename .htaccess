@@ -3,4 +3,8 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteRule ^(.*)$ index.php?url=$1 [L]
+RewriteRule ^livre/([0-9]+)$ index.php?action=chapter&id=$1 [NC,L]
+RewriteRule ^episode/([0-9]+)$ index.php?action=episode&id=$1 [NC,L]
+RewriteRule ^about$ index.php?action=about [NC,L]
+RewriteRule ^home$ index.php [NC,L]
+RewriteRule ^/Jean-Forteroche/(.*)$ /Jean-Forteroche/index.php [L]

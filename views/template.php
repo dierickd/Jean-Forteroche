@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $t ?></title>
     <meta name="description" content="Jean-Forteroche">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= URL.'public/css/style.css' ?>">
 </head>
-<body>
+<body id="top">
+  <div class="main">
     <?= $content ?>
+  </div>
+  <a href="#top">
+    <span class="glyphicon glyphicon-menu-up pull-right"></span>
+  </a>
     <footer class="panel-footer text-center">
         Blog réalisé avec PHP, HTML5 et CSS.
     </footer>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $('a[href^="#"]').click(function(){
@@ -24,24 +28,18 @@
                 return;
             }
             $('html, body').animate({
-                scrollTop:$(the_id).offset().top
+                scrollTop:$(the_id).offset().top - 50
             }, 'slow');
             return false;
         });
     </script>
     <script>
     $(document).ready(function(){
-      $(window).scroll(function() { // check if scroll event happened
-        if ($(document).scrollTop() > 50) { // check if user scrolled more than 50 from top of the browser window
-          $(".navbar-fixed-top").css("background-color", "#FEFEFE"); 
-          $(".navbar-default .navbar-nav>li>a").css("color", "rgb(0, 86, 27)");
-          $("#nav").css("box-shadow", "0px 2px 25px rgb(120, 120, 120)"); 
-          $(".navbar-default .navbar-toggle .icon-bar").css("background", "rgb(0, 86, 27)");
+      $(window).scroll(function() { 
+        if($(document).scrollTop() > 150) {
+          $(".glyphicon-menu-up").css("right", "50px");
         } else {
-          $(".navbar-fixed-top").css("background-color", "transparent");
-          $(".navbar-default .navbar-nav>li>a").css("color", "#FEFEFE");
-          $("#nav").css("box-shadow", "none"); 
-          $(".navbar-default .navbar-toggle .icon-bar").css("background", "#FEFEFE");
+          $(".glyphicon-menu-up").css("right", "-50px");
         }
       });
     });
