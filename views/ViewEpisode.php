@@ -1,9 +1,12 @@
 <?php foreach($episode as $Ep) { ?>
 <?php if($Ep->getIdEpisode() == $_GET['id']) { ?>
 <?php $this->_t = $Ep->getTitleEpisode()." - Jean Forteroche"; ?>
+<<<<<<< HEAD
 <div class="header">
 	
 </div>
+=======
+>>>>>>> 2716fb16f114a8c824cd86c9e435ced24bfde9b1
 <div class="container">
 	<div class="header-episode">
 		<p><?= $Ep->getTitleEpisode() ?></p>
@@ -15,8 +18,12 @@
 		<p><?= $Ep->getAuthorEpisode() ?></p>
 	</div>
 </div>
+<<<<<<< HEAD
 <?php break; 
 } ?>
+=======
+<?php break; } ?>
+>>>>>>> 2716fb16f114a8c824cd86c9e435ced24bfde9b1
 <?php } ?>
 
 <div class="container">
