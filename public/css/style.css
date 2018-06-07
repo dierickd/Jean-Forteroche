@@ -216,6 +216,7 @@ form textarea, form input {
 .footer-all {
   border-top: 1px solid rgb(133, 109, 77);
   background: #fefefe;
+  margin-top: 50px;
 }
 footer h4 {
   border-bottom: 1px solid rgb(133, 109, 77);

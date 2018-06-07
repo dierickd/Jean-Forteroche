@@ -1,7 +1,7 @@
 <?php $this->_t = "Administration | Jean-forteroche"; ?>
 
 <div class="container">
-	<div class="forms col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-xs-offset-1 col-xs-10">
+	<div class="forms col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-ms-offset-4 col-ms-4 col-xs-offset-1 col-xs-9">
 		<div class="log-header">
 			<h4>Connexion</h4>
 		</div>
