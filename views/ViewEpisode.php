@@ -1,30 +1,26 @@
 <?php foreach($episode as $Ep) { ?>
 <?php if($Ep->getIdEpisode() == $_GET['id']) { ?>
 <?php $this->_t = $Ep->getTitleEpisode()." - Jean Forteroche"; ?>
-<<<<<<< HEAD
-<div class="header">
-	
+
+<div class="return container">
+	<a href="<?= URL.'livre/'. $Ep->getLibId() ?>">
+		<i class="fa fa-chevron-left fa-1x"></i><i class="fa fa-chevron-left fa-1x"></i> 
+		Retour aux épisodes
+	</a>
 </div>
-=======
->>>>>>> 2716fb16f114a8c824cd86c9e435ced24bfde9b1
 <div class="container">
 	<div class="header-episode">
 		<p><?= $Ep->getTitleEpisode() ?></p>
 	</div>
-	<div class="body-episode">
+	<div class="body-episode-unique">
 		<p><?= $Ep->getContentEpisode() ?></p>
 	</div>
-	<div class="footer-episode">
-		<p><?= $Ep->getAuthorEpisode() ?></p>
+	<div class="footer-episode-unique">
+		<p><i>Par <?= $Ep->getAuthorEpisode() ?>, <?= $Ep->getDateEpisode() ?></i></p>
 	</div>
 </div>
-<<<<<<< HEAD
-<?php break; 
-} ?>
-=======
-<?php break; } ?>
->>>>>>> 2716fb16f114a8c824cd86c9e435ced24bfde9b1
-<?php } ?>
+
+<?php } break; } ?>
 
 <div class="container">
 	<div class="header-episode">

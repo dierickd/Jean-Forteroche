@@ -20,9 +20,12 @@ class Controllerchapter
 	{
 		$this->_chapterManager = new ChapterManager;
 		$chapter = $this->_chapterManager->getChapter();
-
-		$this->_view = new View('chapter');
-		$this->_view->generate(array('chapter' => $chapter));
+		
+		if(count($chapter) > 0) {
+			$this->_view = new View('chapter');
+			$this->_view->generate(array('chapter' => $chapter));
+		} else 
+			throw new Exception("Page introuvable");
 	}
 
 	private function controlData()
@@ -33,9 +36,9 @@ class Controllerchapter
 			{
 				$this->chapter();
 			} else 
-				throw new Exception("Page introuvable 2");
+				throw new Exception("Page introuvable");
 		} else 
-			throw new Exception("Page introuvable 1");
+			throw new Exception("Page introuvable");
 	}
 }
 

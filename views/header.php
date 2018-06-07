@@ -13,9 +13,9 @@
 				<ul class="nav navbar-nav">
 					<li><a href="<?= URL.'home' ?>">Accueil</a></li>
 					<li><a href="<?= URL.'about' ?>">à propos</a></li>
-					<li><a href="#oeuvre">Mes oeuvres</a></li>
+					<li><a href="<?= URL.'library' ?>">Mes oeuvres</a></li>
 					<li><a href="#">Galerie</a></li>
-					<li><a href="">Administration</a></li>
+					<li><a href="<?= URL.'admin' ?>">Administration</a></li>
 				</ul>
 			</div>
 		</div>

@@ -7,6 +7,7 @@
     <meta name="description" content="Jean-Forteroche">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?= URL.'public/css/style.css' ?>">
 </head>
 <body id="top">
@@ -37,7 +38,7 @@
     $(document).ready(function(){
       $(window).scroll(function() { 
         if($(document).scrollTop() > 150) {
-          $(".glyphicon-menu-up").css("right", "50px");
+          $(".glyphicon-menu-up").css("right", "0px");
         } else {
           $(".glyphicon-menu-up").css("right", "-50px");
         }

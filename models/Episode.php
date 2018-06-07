@@ -7,6 +7,7 @@ class Episode extends Model
 	private $_contentEpisode;
 	private $_authorEpisode;
 	private $_dateEpisode;
+	private $_libId;
 
 	private $_idCom;
 	private $_authorCom;
@@ -54,6 +55,13 @@ class Episode extends Model
 		}
 	}
 
+	public function setlibId($c_libId)
+	{
+		if(is_string($c_libId))
+		{
+			$this->_libId = $c_libId;
+		}
+	}
 	public function setDateEpisode($c_date)
 	{
 		$this->_dateEpisode = $c_date;
@@ -129,6 +137,10 @@ class Episode extends Model
 		return $this->_dateEpisode;
 	}
 
+	public function getLibId()
+	{
+		return $this->_libId;
+	}
 	// COMMENT
 	public function getChapId()
 	{

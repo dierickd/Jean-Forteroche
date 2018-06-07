@@ -27,6 +27,10 @@ Class Rooter
 				} 
 				elseif($action = 'about') {
 					$this->url($action);
+				} elseif ($action = 'library') {
+					$this->url($action);
+				} elseif ($action = 'admin') {
+					$this->url($action);
 				} else 
 					throw new Exception('Page introuvable');
 			}

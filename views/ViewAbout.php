@@ -9,7 +9,7 @@ foreach ($about as $about) { ?>
 			</caption>
 		</div>
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="col-lg-offset-1 col-lg-9 col-md-12 col-sm-12 col-xs-12">
 				<h1><?= $about->getTitle() ?></h1>
 				<p><?= $about->getContent() ?></p>
 			</div>
