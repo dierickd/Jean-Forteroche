@@ -29,6 +29,7 @@ class View
 
 			require_once VIEW.'header.php';
 			require_once $file;
+			require_once VIEW.'footer.php';
 
 			return ob_get_clean();
 		}

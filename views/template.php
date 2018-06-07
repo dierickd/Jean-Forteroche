@@ -14,12 +14,7 @@
   <div class="main">
     <?= $content ?>
   </div>
-  <a href="#top">
-    <span class="glyphicon glyphicon-menu-up pull-right"></span>
-  </a>
-    <footer class="panel-footer text-center">
-        Blog réalisé avec PHP, HTML5 et CSS.
-    </footer>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">

@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="forms col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-xs-offset-1 col-xs-10">
 		<div class="log-header">
-			<h4>Formulaire de connexion</h4>
+			<h4>Connexion</h4>
 		</div>
 		<form method="post" action="connect.php">
 			<div class="log input-group">
