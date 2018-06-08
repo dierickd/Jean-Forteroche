@@ -31,7 +31,9 @@ Class Rooter
 					$this->url($action);
 				} elseif ($action = 'admin') {
 					$this->url($action);
-				} else 
+				} elseif ($action = 'dashboard') {
+					$this->url($action);
+				} else
 					throw new Exception('Page introuvable');
 			}
 			else

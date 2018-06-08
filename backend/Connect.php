@@ -13,13 +13,13 @@ foreach ($pass as $ctrl) {
 		if($passTest == $ctrl->getPass())
 		{
 			unset($_SESSION['error']);
-			$this->_view = new View('dashboard');
-			$this->_view->generate(array());
+			header('Location: '.URL.'admin/dashboard');
+
 			break;
 		} else
+			$_SESSION['error'] = 'error';
+			header('Location: '.URL.'admin');
+	} else
 		$_SESSION['error'] = 'error';
 		header('Location: '.URL.'admin');
-	} else
-	$_SESSION['error'] = 'error';
-	header('Location: '.URL.'admin');
 }
