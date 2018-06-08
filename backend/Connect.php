@@ -1,12 +1,14 @@
 <?php 
-if (!isset($_SESSION)) { session_start(); }
+if (!isset($_SESSION)) { 
+	session_start(); 
+}
 
-
+$logSecure = htmlspecialchars($_POST['login']);
+$passSecure = htmlspecialchars($_POST['password']);
+$passTest = strtoupper(sha1($passSecure));
 
 foreach ($pass as $ctrl) {
-	$passTest = strtoupper(sha1($_POST['password']));
-
-	if($_POST['login'] == $ctrl->getUser())
+	if($logSecure == $ctrl->getUser())
 	{
 		if($passTest == $ctrl->getPass())
 		{

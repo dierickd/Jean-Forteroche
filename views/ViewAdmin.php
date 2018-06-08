@@ -9,7 +9,7 @@ $this->_t = "Administration | Jean-forteroche"; ?>
 		</div>
 		<form method="post" action="admin/connect">
 			<?php if(isset($_SESSION['error'])){ ?>
-				<div class="error">
+				<div class="no-match">
 					<p><b>Login ou mot de passe non valide !</b></p>
 				</div>
 			<?php unset($_SESSION['error']); } ?>
