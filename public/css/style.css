@@ -230,6 +230,13 @@ footer .info-footer {
   text-align: center;
 }
 
+.error {
+  color: #f11;
+  text-align: center;
+}
+
+
+
 .glyphicon-menu-up {
   position: fixed;
   right: -50px;
