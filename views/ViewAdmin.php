@@ -5,10 +5,10 @@
 		<div class="log-header">
 			<h4>Connexion</h4>
 		</div>
-		<form method="post" action="connect.php">
+		<form method="post" action="admin/connect">
 			<div class="log input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input id="email" type="text" class="form-control" name="email" placeholder="Email">
+				<input id="login" type="text" class="form-control" name="login" placeholder="login">
 			</div>
 			<div class="pass input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
