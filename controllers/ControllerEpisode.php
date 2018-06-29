@@ -1,24 +1,22 @@
-<?php 
+<?php
 
-require_once VIEW.'View.php';
+require_once VIEW . 'View.php';
 
-class Controllerepisode
-{
+class Controllerepisode {
 	private $_episodeManager;
 	private $_episodeComment;
 	private $_view;
 
-	public function __construct($url)
-	{
-		if(isset($url) && count($url) != 2)
-		{
+	public function __construct($url) {
+		if (isset($url) && count($url) != 2) {
 			throw new Exception("Page introuvable");
-		} else
+		} else {
 			$this->controlData();
+		}
+
 	}
 
-	private function episode()
-	{
+	private function episode() {
 		$this->_episodeManager = new EpisodeManager;
 		$episode = $this->_episodeManager->getEpisode();
 
@@ -26,17 +24,17 @@ class Controllerepisode
 		$this->_view->generate(array('episode' => $episode));
 	}
 
-	private function controlData()
-	{
-		if(isset($_GET['action']) && $_GET['action'] == 'episode')
-		{
-			if(isset($_GET['id']) && (int) $_GET['id'])
-			{
+	private function controlData() {
+		if (isset($_GET['action']) && $_GET['action'] == 'episode') {
+			if (isset($_GET['id']) && (int) $_GET['id']) {
 				$this->episode();
-			} else 
+			} else {
 				throw new Exception("Page introuvable 2");
-		} else 
+			}
+
+		} else {
 			throw new Exception("Page introuvable 1");
+		}
+
 	}
 }
-

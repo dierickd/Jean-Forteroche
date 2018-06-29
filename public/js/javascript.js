@@ -17,4 +17,29 @@ $(document).ready(function() {
 			$(".glyphicon-menu-up").css("right", "-50px");
 		}
 	});
+	$('#header-1').click(function() {
+		$('#detail-1').toggle(300);
+		$('#header-1 .glyphicon-chevron-up').toggle(300);
+		$('#header-1 .glyphicon-chevron-down').toggle(300);
+	});
+	$('#header-2').click(function() {
+		$('#detail-2').toggle(300);
+		$('#header-2 .glyphicon-chevron-up').toggle(300);
+		$('#header-2 .glyphicon-chevron-down').toggle(300);
+	});
+	$('#header-3').click(function() {
+		$('#detail-3').toggle(300);
+		$('#header-3 .glyphicon-chevron-up').toggle(300);
+		$('#header-3 .glyphicon-chevron-down').toggle(300);
+	});
+	$('#header-4').click(function() {
+		$('#detail-4').toggle(300);
+		$('#header-4 .glyphicon-chevron-up').toggle(300);
+		$('#header-4 .glyphicon-chevron-down').toggle(300);
+	});
+	$('#header-5').click(function() {
+		$('#detail-5').toggle(300);
+		$('#header-5 .glyphicon-chevron-up').toggle(300);
+		$('#header-5 .glyphicon-chevron-down').toggle(300);
+	});
 });

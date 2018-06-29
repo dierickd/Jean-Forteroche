@@ -1,23 +1,21 @@
-<?php 
+<?php
 
-require_once VIEW.'View.php';
+require_once VIEW . 'View.php';
 
-class Controllerhome
-{
+class Controllerhome {
 	private $_bookManager;
 	private $_view;
 
-	public function __construct($url)
-	{
-		if(isset($url) && count($url) > 1)
-		{
+	public function __construct($url) {
+		if (isset($url) && count($url) > 1) {
 			throw new Exception("Page introuvable");
-		} else 
+		} else {
 			$this->books();
+		}
+
 	}
 
-	private function books()
-	{
+	private function books() {
 		$this->_bookManager = new BookManager;
 		$books = $this->_bookManager->getBooks();
 
