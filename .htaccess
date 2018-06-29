@@ -11,6 +11,7 @@ RewriteRule ^admin$ index.php?action=admin [NC,L]
 
 RewriteRule ^admin/connect$ index.php?action=admin&layout=connect [NC,L]
 RewriteRule ^admin/dashboard$ index.php?action=admin&layout=dashboard [NC,L]
+RewriteRule ^admin/library$ index.php?action=admin&layout=library [NC,L]
 
 
 RewriteRule ^home$ index.php [NC,L]
