@@ -1,22 +1,24 @@
 <?php $this->_t = "Administration";?>
 
 <div class="container">
-	<div class="col-md-6 col-lg-3">
-		<div class="card">
-			<div class="row">
-				<div class="sec-card icon col-lg-6">
-					<span class="glyphicon glyphicon-book"></span>
-					<p><?=count($adminLibrary)?></p>
+	<div class="col-md-6 col-lg-6">
+		<a href="<?=URL . 'admin/library'?>">
+			<div class="card">
+				<div class="row">
+					<div class="sec-card icon col-lg-6">
+						<span class="glyphicon glyphicon-book"></span>
+						<p><?=count($adminLibrary)?></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="info-card col-lg-12">
+						<p>Livres diffusés</p>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="info-card col-lg-12">
-					<p>Livres diffusés</p>
-				</div>
-			</div>
-		</div>
+		</a>
 	</div>
-	<div class="col-md-6 col-lg-3">
+	<div class="col-md-6 col-lg-6">
 		<div class="card">
 			<div class="row">
 				<div class="sec-card icon col-lg-6">
@@ -31,7 +33,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6 col-lg-3">
+	<div class="col-md-6 col-lg-6">
 		<div class="card">
 			<div class="row">
 				<div class="sec-card icon col-lg-6">
@@ -46,7 +48,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6 col-lg-3">
+	<div class="col-md-6 col-lg-6">
 		<div class="card">
 			<div class="row">
 				<div class="sec-card icon col-lg-6">
@@ -66,7 +68,7 @@ foreach ($adminBook as $ch) {
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6 col-lg-3">
+	<div class="col-md-6 col-lg-6">
 		<div class="card">
 			<div class="row">
 				<div class="sec-card icon col-lg-6">
@@ -81,7 +83,7 @@ foreach ($adminBook as $ch) {
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6 col-lg-3">
+	<div class="col-md-6 col-lg-6">
 		<div class="card">
 			<div class="row">
 				<div class="sec-card icon col-lg-6">
@@ -99,10 +101,10 @@ foreach ($adminBook as $ch) {
 </div>
 <div class="panel-admin container">
 <?php
-require VIEW . 'admin' . DS . 'viewAdminLivres.php';
+/*require VIEW . 'admin' . DS . 'viewAdminLivres.php';
 require VIEW . 'admin' . DS . 'ViewAdminChapitre.php';
 require VIEW . 'admin' . DS . 'ViewAdminCommentaire.php';
 require VIEW . 'admin' . DS . 'ViewAdminBrouillons.php';
-require VIEW . 'admin' . DS . 'ViewAdminPerso.php';
+require VIEW . 'admin' . DS . 'ViewAdminPerso.php';*/
 ?>
 </div>

@@ -25,7 +25,7 @@ class Controlleradmin {
 		$books = $this->_bookManager->getBooks();
 
 		$this->_view = new View('admin/admin');
-		$this->_view->generate(array(''));
+		$this->_view->generate(array());
 	}
 
 	private function controlForm($url) {
@@ -60,6 +60,12 @@ class Controlleradmin {
 					'adminUser' => $adminUser,
 					'adminLibrary' => $adminLibrary,
 				));
+			} elseif ($url['layout'] == 'library') {
+				$this->_bookManager = new BookManager;
+				$adminBook = $this->_bookManager->getBooks();
+
+				$this->_view = new View('admin/adminLivres');
+				$this->_view->generate(array('adminBook' => $adminBook));
 			} else {
 				throw new Exception("Page introuvable");
 			}
