@@ -1,6 +1,10 @@
-<?php 
-if (!isset($_SESSION)) { 
-	session_start(); 
+<?php
+if (!isset($_SESSION)) {
+	session_start();
+}
+
+if (!isset($_SERVER['HTTP_REFERER']) AND empty($_SERVER['HTTP_REFERER'])) {
+	header('Location:' . URL);
 }
 
 $logSecure = htmlspecialchars($_POST['login']);
@@ -8,18 +12,20 @@ $passSecure = htmlspecialchars($_POST['password']);
 $passTest = strtoupper(sha1($passSecure));
 
 foreach ($pass as $ctrl) {
-	if($logSecure == $ctrl->getUser())
-	{
-		if($passTest == $ctrl->getPass())
-		{
+	if ($logSecure == $ctrl->getUser()) {
+		if ($passTest == $ctrl->getPass()) {
 			unset($_SESSION['error']);
-			header('Location: '.URL.'admin/dashboard');
+			header('Location: ' . URL . 'admin/dashboard');
 
 			break;
-		} else
+		} else {
 			$_SESSION['error'] = 'error';
-			header('Location: '.URL.'admin');
-	} else
+		}
+
+		header('Location: ' . URL . 'admin');
+	} else {
 		$_SESSION['error'] = 'error';
-		header('Location: '.URL.'admin');
+	}
+
+	header('Location: ' . URL . 'admin');
 }
