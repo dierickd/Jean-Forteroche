@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
 	session_start();
 }
 
-if (!isset($_SERVER['HTTP_REFERER']) AND empty($_SERVER['HTTP_REFERER'])) {
+if (!isset($_SERVER['HTTP_REFERER'])) {
 	header('Location:' . URL);
 }
 
