@@ -16,7 +16,6 @@ class Book extends Model {
 
 	// SETTER
 
-	// CHAPTER
 	public function setIdChapter($id) {
 		$id = (int) $id;
 		if ($id > 0) {
@@ -66,7 +65,6 @@ class Book extends Model {
 
 	// GETTERS
 
-	// CHAPTER
 	public function getIdChapter() {
 		return $this->_idChapter;
 	}

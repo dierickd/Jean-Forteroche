@@ -1,12 +1,6 @@
 <?php
 
 class Episode extends Model {
-	private $_idEpisode;
-	private $_titleEpisode;
-	private $_contentEpisode;
-	private $_authorEpisode;
-	private $_dateEpisode;
-	private $_libId;
 
 	private $_idCom;
 	private $_authorCom;
@@ -15,45 +9,12 @@ class Episode extends Model {
 	private $_valCom;
 	private $_chapId;
 
-	public function __construct(array $data) {
+	/*public function __construct(array $data) {
 		$this->hydrate($data);
-	}
+	}*/
 
 	// SETTER
-	// TABLE EPISODE
-	public function setIdEpisode($c_id) {
-		$c_id = (int) $c_id;
-		if ($c_id > 0) {
-			$this->_idEpisode = $c_id;
-		}
-	}
-	public function setAuthorEpisode($c_author) {
-		if (is_string($c_author)) {
-			$this->_authorEpisode = $c_author;
-		}
-	}
 
-	public function setTitleEpisode($c_title) {
-		if (is_string($c_title)) {
-			$this->_titleEpisode = $c_title;
-		}
-	}
-
-	public function setContentEpisode($c_content) {
-		if (is_string($c_content)) {
-			$this->_contentEpisode = $c_content;
-		}
-	}
-
-	public function setlibId($c_libId) {
-		if (is_string($c_libId)) {
-			$this->_libId = $c_libId;
-		}
-	}
-	public function setDateEpisode($c_date) {
-		$this->_dateEpisode = $c_date;
-	}
-	// TABLE COMMENT
 	public function setIdCom($co_id) {
 		$co_id = (int) $co_id;
 		if ($co_id > 0) {
@@ -86,31 +47,6 @@ class Episode extends Model {
 	}
 
 	// GETTERS
-	// EPISODE
-	public function getIdEpisode() {
-		return $this->_idEpisode;
-	}
-
-	public function getAuthorEpisode() {
-		return $this->_authorEpisode;
-	}
-
-	public function getTitleEpisode() {
-		return $this->_titleEpisode;
-	}
-
-	public function getContentEpisode() {
-		return $this->_contentEpisode;
-	}
-
-	public function getDateEpisode() {
-		return $this->_dateEpisode;
-	}
-
-	public function getLibId() {
-		return $this->_libId;
-	}
-	// COMMENT
 	public function getChapId() {
 		return $this->_chapId;
 	}

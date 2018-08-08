@@ -5,9 +5,9 @@ class ctrlPass extends Model {
 	private $_pass;
 	private $_mail;
 
-	public function __construct(array $data) {
+	/*public function __construct(array $data) {
 		$this->hydrate($data);
-	}
+	}*/
 
 	// SETTER
 	public function setUser($user) {

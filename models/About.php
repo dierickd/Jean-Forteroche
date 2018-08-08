@@ -2,14 +2,14 @@
 
 class About extends Model {
 
-	private $_idJf;
+	private $_id;
 	private $_nameJf;
 	private $_titleJf;
 	private $_contentJf;
 
-	public function __construct(array $data) {
+	/*public function __construct(array $data) {
 		$this->hydrate($data);
-	}
+	}*/
 
 	// SETTER
 	public function setIdJf($idJf) {
