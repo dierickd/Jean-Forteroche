@@ -24,6 +24,7 @@ class Controller {
 		$content_for_layout = ob_get_clean();
 		require VIEW . 'layout' . DS . 'header.php';
 		require VIEW . 'layout' . DS . $this->layout . '.php';
+		require VIEW . 'layout' . DS . 'footer.php';
 		$this->rendered = true;
 	}
 

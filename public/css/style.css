@@ -162,21 +162,12 @@ header .header-bottom {
   display: none; 
 }
 
-.footer-all {
+footer {
+  background-color: #eee;
   border-top: 1px solid rgb(133, 109, 77);
-  background: #fefefe;
+  font-size: 1em;
   margin-top: 50px;
-}
-footer h4 {
-  border-bottom: 1px solid rgb(133, 109, 77);
-}
-footer .info-footer {
-  padding: 15px;
-}
-.footer-below {
   padding-top: 20px;
-  border-top: 1px solid rgba(133, 109, 77, 0.5);
-  text-align: center;
 }
 
 .no-match {
