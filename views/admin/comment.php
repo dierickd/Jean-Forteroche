@@ -30,7 +30,6 @@
               <div id="chapter-filter" class="form-group">
                 <div class="sec-form">
                   <select class="select" id="select">
-                    <option value="">Sélectionnez un chapitre</option>
                     <?php foreach ($chapter as $c) {?>
                       <option value="<?=$c->id?>"><?=$c->titleChapter?></option>
                     <?php }?>
@@ -50,7 +49,6 @@
               <div id="name-filter" class="form-group" action="" method="post">
                 <div class="sec-form">
                   <select class="selAuthor" id="selAuthor">
-                    <option value="">Sélectionnez un auteur</option>
                     <?php foreach ($comment as $k) {?>
                       <option value="<?=$k->authorCom?>"><?=$k->authorCom?></option>
                     <?php }?>

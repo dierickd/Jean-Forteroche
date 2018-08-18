@@ -46,6 +46,14 @@ class model {
 		return $pre->fetchAll(PDO::FETCH_OBJ);
 	}
 
+	public function controlExists($req, $table, $cond) {
+		$sql = 'SELECT ' . $req . ' FROM ' . $table . ' WHERE nbArt=' . $cond['conditions']['where'];
+		$pre = $this->db->prepare($sql);
+		$pre->execute();
+		return $pre->fetch(PDO::FETCH_OBJ);
+	}
+
+	//insert new comment
 	public function insert($req, $id) {
 		$sql = 'INSERT INTO ' . $req;
 		$pre = $this->db->prepare($sql);
@@ -56,17 +64,18 @@ class model {
 		));
 		$pre->closeCursor();
 	}
+
+	//insert new chapter
 	public function addChapter($req) {
 		$sql = 'INSERT INTO ' . $req;
 		$pre = $this->db->prepare($sql);
 		$pre->execute(array(
-			'titleChapter' => htmlspecialchars($_POST['title']),
-			'authorChapter' => 'Jean Forteroche',
-			'dateChapter' => CURRENT_TIMESTAMP,
-			'contentChapter' => htmlspecialchars($_POST['content']),
-			'nbArt' => htmlspecialchars($_POST['article']),
-			'library_id' => htmlspecialchars($_POST['chapter']),
-			'online' => htmlspecialchars($_POST['online']),
+			'title' => htmlspecialchars($_POST['title']),
+			'author' => 'Jean Forteroche',
+			'content' => htmlspecialchars($_POST['content']),
+			'article' => htmlspecialchars($_POST['article']),
+			'artwork' => '1',
+			'online' => '0',
 		));
 		$pre->closeCursor();
 	}
@@ -83,4 +92,5 @@ class model {
 		$pre->execute();
 		$pre->closeCursor();
 	}
+
 }

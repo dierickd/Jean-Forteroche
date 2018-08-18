@@ -1,3 +1,4 @@
+<?php $title_for_layout = 'Admin | Connexion'?>
 <div class="jumbotron">
 	<div class="container">
 		<h3>Accès administrateur</h3>

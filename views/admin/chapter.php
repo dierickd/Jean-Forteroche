@@ -1,4 +1,4 @@
-<?php $title_for_layout = $chapter->titleChapter?>
+<?php $title_for_layout = $chapter->titleChapter . ' | Admin'?>
 
 
 <div class="jumbotron <?=intval($chapter->online) === 1 ? 'online-1' : 'offline-1'?> ">
@@ -26,7 +26,7 @@
 				<p class="alert alert-danger">
 					ATTENTION !! La suppression est irréversible, une fois l'article supprimé, il sera impossible de revenir en arrière !
 				</p>
-				<a href="<?=URL . '/chapter/delete/' . $chapter->id?>" onclick="return sure();">Supprimer mon article</a>
+				<a href="<?=URL . '/chapter/delete/' . $chapter->id?>" onclick="return sure();">Supprimer l'article</a>
 			</div>
 			<?php if (intval($chapter->online) === 1) {?>
 				<div>
@@ -38,6 +38,12 @@
 
 	<!-- form for update title and chapter -->
 	<form class="form-chapter" action="<?=URL . "/chapter/save/" . $chapter->id?>" method="post">
+		<div class="command">
+			<div class="diffuse">
+				<label for="article" class="article">Numéro du chapitre</label><br/>
+				<input type="text" id="article" name="article" required="required" placeholder="Numéro d'article" value="<?=$chapter->nbArt?> ">
+			</div>
+		</div>
 		<div class="title-admin">
 			<h3><b>Titre</b></h3>
 			<h4>

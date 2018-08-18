@@ -7,36 +7,89 @@
 <div class="container">
 	<p><a href=" <?=URL?> ">&larr; Retour à l'accueil du site</a></p>
 
+
 	<!-- SECTION CHAPITRE  -->
 	<div class="col-lg-4 col-md-6 col-xs-12">
 		<a href="<?=URL . '/admin/chapters'?>">
-		<div class="box">
-			<?php $p = 0;
+			<div class="box">
+
+				<div class="col-md-12 col-lg-12 col-xs-12 title-admin">
+						<h4>Chapitres</h4>
+				</div>
+				<?php $p = 0;
 for ($i = 0; $i < count($chapter); $i++) {
 	if (intval($chapter[$i]->online) === 1) {
 		$p++;
 	}
 }?>
-			<h4 class="line-all"><i>Chapitre(s) total(s): </i><?=count($chapter)?></i></h4>
-			<h4 class="line-on"><i>Chapitre(s) online(s): </i><?=$p?></i></h4>
-			<h4 class="line-off"><i>Chapitre(s) offline(s): </i><?=count($chapter) - $p?></i></h4>
-			</a>
-		</div>
+				<div class="col-md-12 col-lg-12 col-xs-12 detail-admin">
+					<div class="col-md-4 col-lg-4 col-xs-4 icon-admin">
+						<p><i class="fas fa-book-open"></i></p>
+					</div>
+
+					<div class="col-md-8 col-lg-8 col-xs-8 content-admin">
+						<p class="line-all"><i>Total(s): <?=count($chapter)?></i></p>
+						<p class="line-on"><i>Online(s): <?=$p?></i></p>
+						<p class="line-off"><i>Offline(s): <?=count($chapter) - $p?></i></p>
+					</div>
+				</div>
+
+			</div>
+		</a>
 	</div>
 
-	<!-- SECTION COMMENTAIRE  -->
-	<div class="col-lg-4 col-md-6 col-xs-12">
+	<!-- SECTION comments  -->
+<div class="col-lg-4 col-md-6 col-xs-12">
 		<a href="<?=URL . '/admin/comment'?>">
-		<div class="box">
-			<?php $s = 0;
+			<div class="box">
+
+				<div class="col-md-12 col-lg-12 col-xs-12 title-admin">
+						<h4>Commentaires</h4>
+				</div>
+					<?php $s = 0;
 for ($i = 0; $i < count($comment); $i++) {
 	if (intval($comment[$i]->validate) === 0) {
 		$s++;
 	}
 }?>
-			<h4 class="line-all"><i>Commentaire(s) total(s): </i><?=count($comment)?></i></h4>
-			<h4 class="line-off"><i>Commentaire(s) signalé(s): </i><?=$s?></i></h4>
-			</a>
-		</div>
+				<div class="col-md-12 col-lg-12 col-xs-12 detail-admin">
+					<div class="col-md-4 col-lg-4 col-xs-4 icon-admin">
+						<p><i class="fas fa-comments"></i></p>
+					</div>
+
+					<div class="col-md-8 col-lg-8 col-xs-8 content-admin">
+						<p class="line-all"><i>Total(s): <?=count($comment)?></i></p>
+						<p class="line-off"><i>Signalé(s): <?=$s?></i></p>
+					</div>
+				</div>
+
+			</div>
+		</a>
 	</div>
+
+	<!-- SECTION about  -->
+	<div class="col-lg-4 col-md-6 col-xs-12">
+		<a href="<?=URL . '/admin/about'?>">
+			<div class="box">
+
+				<div class="col-md-12 col-lg-12 col-xs-12 title-admin">
+						<h4>Gérer ma présentation</h4>
+				</div>
+
+				<div class="col-md-12 col-lg-12 col-xs-12 detail-admin">
+					<div class="col-md-4 col-lg-4 col-xs-4 icon-admin">
+						<p><i class="fas fa-user-edit"></i></p>
+					</div>
+
+					<div class="col-md-8 col-lg-8 col-xs-8 content-admin">
+						<p>Gérer...</p>
+					</div>
+				</div>
+
+			</div>
+		</a>
+	</div>
+
+
+
 </div>

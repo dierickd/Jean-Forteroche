@@ -7,8 +7,12 @@ class About extends Model {
 	private $_titleJf;
 	private $_contentJf;
 
-	/*public function __construct(array $data) {
-		$this->hydrate($data);
+	/*public function __construct($data) {
+		foreach ($data as $key => $value) {
+			$method = 'set' . ucfirst($key);
+		}
+		var_dump($key);
+		return $method($value);
 	}*/
 
 	// SETTER

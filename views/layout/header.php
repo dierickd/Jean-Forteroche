@@ -20,6 +20,7 @@
 					<li><a href="<?=URL . '/admin/home'?>">Administration</a></li>
 					<li><a href="<?=URL . '/admin/chapters'?>">Chapitres</a></li>
 					<li><a href="<?=URL . '/admin/comment'?>">commentaires</a></li>
+					<li><a href="<?=URL . '/admin/about'?>">About</a></li>
 					<li><a href="<?=URL . '/admin/logout'?>">Logout</a></li>
 				<?php } else {?>
 					<li><a href="<?=URL . '/admin/connect'?>">Login</a></li>

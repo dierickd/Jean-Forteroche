@@ -11,7 +11,7 @@ class IndexController extends Controller {
 		$chapter = $this->chapter->findAll($req, $this->table, array(
 			'conditions' => array(
 				'order' => 'id',
-				'limit' => '3',
+				'limit' => '4',
 			),
 		));
 		if (empty($chapter)) {

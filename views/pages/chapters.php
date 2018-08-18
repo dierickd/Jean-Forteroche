@@ -1,3 +1,4 @@
+<?php $title_for_layout = 'Liste des chapitres | Jean Forteroche'?>
 
 <div class="jumbotron">
 	<div class="container">

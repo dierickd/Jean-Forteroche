@@ -2,6 +2,7 @@
 
 class AdminController extends Controller {
 	public $table;
+	public $table2;
 
 	public function home() {
 		if (isset($_COOKIE['admin']) AND isset($_SESSION['admin'])) {
@@ -180,17 +181,24 @@ class AdminController extends Controller {
 	}
 
 	public function newchapter() {
+		session_destroy();
 		$url = $_SERVER['HTTP_REFERER'];
 		$this->table = 'library';
+		$this->table2 = 'chapter';
 
-		$this->loadModel('Library');
-		$library = new model();
+		$reqAll = new model();
 		$req = 'id, title, author';
-		$library = $this->Library->findAll($req, $this->table);
+		$req2 = 'id';
+		$library = $reqAll->findAll($req, $this->table);
+		$chapter = $reqAll->findAll($req2, $this->table2);
 		if (empty($library)) {
 			$this->e404('Page introuvable !');
 		}
+		if (empty($chapter)) {
+			$this->e404('Page introuvable !');
+		}
 		$this->set('library', $library);
+		$this->set('chapter', $chapter);
 	}
 
 }

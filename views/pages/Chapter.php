@@ -1,5 +1,5 @@
 
-<?php $title_for_layout = $chapter->titleChapter . ' | Jean-Forteroche';?>
+<?php $title_for_layout = $chapter->titleChapter . ' | Jean Forteroche';?>
 
 <div class="container">
 	<h3><?=$chapter->titleChapter;?></h3>
@@ -12,7 +12,7 @@
 	</div>
 </div>
 <div class="container">
-	<h3>Liste des commentaires</h3>
+	<h3>Commentaires</h3>
 		<?php
 foreach ($comment as $k) {
 	if ($k->chapter_id == $chapter->id AND $k->validate == 1) {?>

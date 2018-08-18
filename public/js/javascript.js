@@ -77,7 +77,7 @@ $(function() {
 });
 
 function clear_form() {
-    $('form').find("input, :text, select").val("").end().find(":checked").prop("checked", false);
+	$('form').find("input, :text, select").val("").end().find(":checked").prop("checked", false);
 }
 
 //bouton de filtre comment notify
