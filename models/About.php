@@ -1,19 +1,11 @@
 <?php
 
-class About extends Model {
+class About extends model {
 
 	private $_id;
 	private $_nameJf;
 	private $_titleJf;
 	private $_contentJf;
-
-	/*public function __construct($data) {
-		foreach ($data as $key => $value) {
-			$method = 'set' . ucfirst($key);
-		}
-		var_dump($key);
-		return $method($value);
-	}*/
 
 	// SETTER
 	public function setIdJf($idJf) {

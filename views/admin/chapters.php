@@ -41,6 +41,6 @@ foreach ($chapter as $k) {
 	</table>
 
 	<div class="create">
-		<a href="<?=URL . '/admin/newchapter'?>" class="btn-new">Nouveau</a>
+		<a href="<?=URL . '/admin/newchapter'?>" class="btn-new">Ajouter un contenu</a>
 	</div>
 </div>

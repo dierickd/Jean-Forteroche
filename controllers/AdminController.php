@@ -42,7 +42,7 @@ class AdminController extends Controller {
 		if ($login == $c[0]->user) {
 			if ($mdp == $c[0]->pass) {
 				unset($_SESSION['error']);
-				setcookie('admin', 'connect', time() + 365 * 24 * 3600, null, null, false, true);
+				setcookie('admin', 'connect', time() + 1 * 0 * 0, null, null, false, true);
 				$_SESSION['admin'] = 'online';
 				header('Location: ' . URL . '/admin/home');
 				die();
@@ -199,6 +199,23 @@ class AdminController extends Controller {
 		}
 		$this->set('library', $library);
 		$this->set('chapter', $chapter);
+	}
+
+	public function about() {
+
+		if (!isset($_COOKIE['admin'])) {
+			header('Location: ' . URL . '/admin/connect');
+		}
+		$this->table = 'about';
+
+		$this->loadModel('about');
+		$req = 'idJf, nameJf, titleJf, contentJf';
+		$about = $this->about->findAll($req, $this->table);
+
+		if (empty($about)) {
+			$this->e404('Page introuvable !');
+		}
+		$this->set('about', $about);
 	}
 
 }
