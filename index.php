@@ -13,11 +13,5 @@ define('CORE', RACINE . DS . 'core' . DS); //mène au dossier core
 
 require CORE . 'includes.php';
 
-$timer = microtime();
-
 new Dispatcher();
 
-?>
-<!-- <div class="info-time navbar-fixed-bottom">
-	<p>Chargement en: <?=$newtime = microtime(FALSE) - $timer?> seconde(s)</p>
-</div> -->

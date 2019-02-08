@@ -26,6 +26,7 @@ Class Dispatcher {
 	}
 
 	public function loadController() {
+		if(!isset($controller)) {$controller = 'index'};
 		$controller = ucfirst(strtolower($this->request->controller));
 		$fileName = $controller . 'Controller';
 		$file = CONTROLER . $fileName . '.php';
