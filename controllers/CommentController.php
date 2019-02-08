@@ -13,14 +13,13 @@ class CommentController extends Controller {
 			$insert = $this->table . '(authorCom, contentCom, chapter_id)';
 			$value = 'VALUES(:pseudo, :com, :id)';
 			$request = $insert . ' ' . $value;
-
 			if (empty($request)) {
-				header('Location:' . URL . '/pages/chapters');
+				header('Location:' . URL . '?pages/chapters');
 			}
 			$this->Episode->insert($request, $id);
-			header('Location:' . URL . '/pages/chapter/' . $id);
+			header('Location:' . URL . '?pages/chapter/' . $id);
 		} else {
-			header('Location:' . URL . '/pages/chapters');
+			header('Location:' . URL . '?pages/chapters');
 		}
 	}
 

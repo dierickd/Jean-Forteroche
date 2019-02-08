@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="<?=URL . '/public/css/style.css'?>">
   <script src='https://code.jquery.com/jquery-3.1.0.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700" rel="stylesheet">
   <script src="<?=URL . '/public/js/javascript.js'?>"></script>
 </head>
 <body id="top">

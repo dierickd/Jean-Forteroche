@@ -5,73 +5,49 @@ class AdminController extends Controller {
 	public $table2;
 
 	public function home() {
-		if (isset($_COOKIE['admin']) AND isset($_SESSION['admin'])) {
+		if (isset($_COOKIE['auth']) AND isset($_SESSION['auth'])) {
 			$this->chapters();
 			$this->comment();
+			$this->members();
 		} else {
-			setcookie('admin', '', time());
-			header('Location: ' . URL . '/admin/connect');
+			setcookie('auth', '', time());
+			header('Location: ' . URL . '?pages/connect');
 		}
 	}
 
-	public function connect() {
-		if (isset($_COOKIE['admin'])) {
-			header('Location: ' . URL . '/admin/home');
+	
+	public function members() {
+		if (!isset($_COOKIE['auth'])) {
+			header('Location: ' . URL . '?pages/connect');
 		}
-		if (isset($_POST['login'])) {
-			$this->table = 'connect';
+		$this->table = 'connect';
 
-			$this->loadModel('ctrlPass');
-			$library = new model();
-			$req = 'id, user, pass, mail';
-			$ctrlPass = $this->ctrlPass->findAll($req, $this->table);
-			if (empty($ctrlPass)) {
-				$this->e404('Page introuvable !');
-			}
-			$this->set('ctrlPass', $ctrlPass);
-			$this->controlAccess($ctrlPass);
-		} else {
-			$this->render('connect');
-			unset($_SESSION['error']);
+		$this->loadModel('Ctrlpass');
+		$library = new model();
+		$req = "id, user, mail, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') as date";
+		$members = $this->Ctrlpass->findAll($req, $this->table, array(
+			'conditions' => array(
+				'order' => 'id',
+				'limit' => '5',
+			),
+		));
+
+		if (empty($members)) {
+			$this->e404('Page introuvable !');
 		}
-	}
-
-	private function controlAccess($c) {
-		$login = htmlspecialchars($_POST['login']);
-		$mdp = sha1(htmlspecialchars($_POST['pass']));
-		if ($login == $c[0]->user) {
-			if ($mdp == $c[0]->pass) {
-				unset($_SESSION['error']);
-				setcookie('admin', 'connect', time() + 1 * 0 * 0, null, null, false, true);
-				$_SESSION['admin'] = 'online';
-				header('Location: ' . URL . '/admin/home');
-				die();
-			} else {
-				$_SESSION['error'] = 'error';
-				$this->render('connect');
-			}
-		} else {
-			$_SESSION['error'] = 'error';
-			$this->render('connect');
-		}
-	}
-
-	public function logout() {
-		session_destroy();
-		setcookie('admin', '', time());
-		header('Location: ' . URL);
+		$this->set('members', $members);
 	}
 
 	public function chapters() {
-		if (!isset($_COOKIE['admin'])) {
-			header('Location: ' . URL . '/admin/connect');
+		if (!isset($_COOKIE['auth'])) {
+			header('Location: ' . URL . '?pages/connect');
 		}
 		$this->table = 'chapter';
 
-		$this->loadModel('chapter');
+		$this->loadModel('Chapter');
 		$library = new model();
 		$req = 'id, titleChapter, authorChapter, contentChapter, nbArt, online';
-		$chapter = $this->chapter->findAll($req, $this->table);
+		$chapter = $this->Chapter->findAll($req, $this->table);
 
 		if (empty($chapter)) {
 			$this->e404('Page introuvable !');
@@ -80,16 +56,16 @@ class AdminController extends Controller {
 	}
 
 	public function chapter($id = null) {
-		if (!isset($_COOKIE['admin'])) {
-			header('Location: ' . URL . '/admin/connect');
+		if (!isset($_COOKIE['auth'])) {
+			header('Location: ' . URL . '?pages/connect');
 		}
 		if (isset($id)) {
 			$this->table = 'chapter';
 
-			$this->loadModel('chapter');
+			$this->loadModel('Chapter');
 			$library = new model();
 			$req = 'id, titleChapter, authorChapter, contentChapter, nbArt, online';
-			$chapter = $this->chapter->findOne($req, $this->table, array(
+			$chapter = $this->Chapter->findOne($req, $this->table, array(
 				'conditions' => array(
 					'where' => $id,
 				),
@@ -104,8 +80,8 @@ class AdminController extends Controller {
 	}
 
 	public function comment() {
-		if (!isset($_COOKIE['admin'])) {
-			header('Location: ' . URL . '/admin/connect');
+		if (!isset($_COOKIE['auth'])) {
+			header('Location: ' . URL . '?pages/connect');
 		}
 		$this->table = 'comment';
 
@@ -124,65 +100,10 @@ class AdminController extends Controller {
 		$this->chapters();
 	}
 
-	public function forgot() {
-		$email = htmlspecialchars($_POST['mail']);
-		$newPwd = "";
-		$chaine = "abcdefghjkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ023456789";
-		$lenString = strlen($chaine);
-
-		for ($i = 1; $i <= 19; $i++) {
-			$rdm = mt_rand(0, ($lenString - 1));
-			if ($i > 1 && $i <= 19 && $i % 5 === 0) {
-				$newPwd .= '-';
-			}
-			$newPwd .= $chaine[$rdm];
-		}
-		$this->controlData($email, $newPwd);
-		$this->sendMail($email);
-		header('Location: ' . URL . '/admin/connect');
-	}
-
-	public function controlData($mail, $pwd) {
-		//header('Location: ' . URL . '/admin/connect');
-	}
-
-	public function sendMail($mail) {
-		$encoding = "ISO-8859-1";
-		$from_mail = 'webmaster@jeanforteroche.com';
-		$from_name = 'Blog jean forteroche';
-		$mail_subject = 'Réinitialisation de mot de passe';
-		$mail_message = 'test';
-
-		if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) {
-			$break = "\r\n";
-		} else {
-			$break = "\n";
-		}
-
-		// Preferences for Subject field
-		$subject_preferences = array(
-			"input-charset" => $encoding,
-			"output-charset" => $encoding,
-			"line-length" => 76,
-			"line-break-chars" => $break,
-		);
-
-		// Mail header
-		$header = "Content-type: text/html; charset=" . $encoding . " \r\n";
-		$header .= "From: " . $from_name . " <" . $from_mail . "> \r\n";
-		$header .= "MIME-Version: 1.0 \r\n";
-		$header .= "Content-Transfer-Encoding: 8bit \r\n";
-		$header .= "Date: " . date("r (T)") . " \r\n";
-		$header .= iconv_mime_encode("Subject", $mail_subject);
-
-		// Send mail
-		mail($mail, $mail_subject, $mail_message, $header);
-		die();
-	}
-
 	public function newchapter() {
-		session_destroy();
-		$url = $_SERVER['HTTP_REFERER'];
+		if (!isset($_COOKIE['auth'])) {
+			header('Location: ' . URL . '?pages/connect');
+		}
 		$this->table = 'library';
 		$this->table2 = 'chapter';
 
@@ -203,18 +124,15 @@ class AdminController extends Controller {
 
 	public function about() {
 
-		if (!isset($_COOKIE['admin'])) {
-			header('Location: ' . URL . '/admin/connect');
+		if (!isset($_COOKIE['auth'])) {
+			header('Location: ' . URL . '?pages/connect');
 		}
 		$this->table = 'about';
 
-		$this->loadModel('about');
+		$this->loadModel('About');
 		$req = 'idJf, nameJf, titleJf, contentJf';
-		$about = $this->about->findAll($req, $this->table);
+		$about = $this->About->findAll($req, $this->table);
 
-		if (empty($about)) {
-			$this->e404('Page introuvable !');
-		}
 		$this->set('about', $about);
 	}
 

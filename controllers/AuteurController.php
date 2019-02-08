@@ -11,23 +11,20 @@ class AuteurController extends Controller {
 	}
 
 	public function about() {
-		$this->loadModel('about');
-		$req = 'idJf,nameJf, titleJf, contentJf';
-		$author = $this->about->findAll($req, $this->table);
+		$this->loadModel('About');
+		$req = 'idJf, nameJf, titleJf, contentJf';
+		$author = $this->About->findAll($req, $this->table);
 		$this->set('author', $author);
 	}
 
 	public function save() {
-		$this->table = 'about';
-		$this->loadModel('about');
-
-		$value = $this->table . ' SET contentJf="' . $_POST['content'] . '" ';
+		$this->loadModel('About');
+		$value = $this->table . ' SET contentJf="' . $_POST['content'] . '", titleJf="'.$_POST['title'].'" ';
 		$request = $value;
-
 		if (empty($request)) {
 			header('Location:' . $this->url);
 		}
-		$this->about->notify($request);
+		$this->About->notify($request);
 		header('Location:' . $this->url);
 	}
 

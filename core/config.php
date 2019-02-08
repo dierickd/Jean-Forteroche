@@ -12,6 +12,14 @@ class Conf {
 			'password' => '',
 		),
 	);
-}
 
-echo "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>";
+	static function debug($data) {
+		echo '<div class="container">';
+		echo '<pre style="background:#f7e9e3;color="#0e0220">';
+		echo '<p>';
+		print_r($data);
+		echo "</p>";
+		echo "</pre>";
+		echo "</div>";
+	}
+}

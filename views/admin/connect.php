@@ -1,11 +1,11 @@
 <?php $title_for_layout = 'Admin | Connexion'?>
-<div class="jumbotron">
+<div class="jumbotron title">
 	<div class="container">
 		<h3>Accès administrateur</h3>
 	</div>
 </div>
 <div class="container">
-	<form class="form-connect" method="post" action="<?=URL . DS . 'admin/connect'?>">
+	<form class="form-connect" method="post" action="<?=URL.'?admin/connect'?>">
 		<div class="connect">
 			<div class="form-group">
 				<label for="login">Login</label>
@@ -26,7 +26,7 @@
 			<p class="no-match text-center">Login et/ou mot de passe incorrect !</p>
 		<?php }?>
 	</form>
-	<form class="form-forgot" method="post" action="<?=URL . DS . 'admin/forgot'?>">
+	<form class="form-forgot" method="post" action="<?=URL.'?admin/forgot'?>">
 		<div class="forgotPw">
 			<div class="form-group">
 				<label for="mail">entrez votre adresse e-mail</label>

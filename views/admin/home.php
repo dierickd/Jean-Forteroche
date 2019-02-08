@@ -1,95 +1,109 @@
+<?php $title_for_layout = 'Administration | Jean Forteroche';?>
 
-<div class="jumbotron">
-	<div class="container">
-		<h3>Bienvenue sur la page d'administration</h3>
-	</div>
+<div class="title-home title">
+	<h3>Administration</h3>
 </div>
-<div class="container">
-	<p><a href=" <?=URL?> ">&larr; Retour à l'accueil du site</a></p>
+<p><a href=" <?=URL?> ">&larr; Retour à l'accueil du site</a></p>
+<div class="content">
 
-
-	<!-- SECTION CHAPITRE  -->
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<a href="<?=URL . '/admin/chapters'?>">
-			<div class="box">
-
-				<div class="col-md-12 col-lg-12 col-xs-12 title-admin">
-						<h4>Chapitres</h4>
-				</div>
+	<div class="main-home">
+		<!-- SECTION CHAPITRE  -->
+		<div class="main-box">
+			<a href="<?=URL . '?admin/chapters'?>">
 				<?php $p = 0;
-for ($i = 0; $i < count($chapter); $i++) {
-	if (intval($chapter[$i]->online) === 1) {
-		$p++;
-	}
-}?>
-				<div class="col-md-12 col-lg-12 col-xs-12 detail-admin">
-					<div class="col-md-4 col-lg-4 col-xs-4 icon-admin">
-						<p><i class="fas fa-book-open"></i></p>
+				for ($i = 0; $i < count($chapter); $i++) {
+					if (intval($chapter[$i]->online) === 1) {
+						$p++;
+					}
+				}?>
+				<div class="box">
+					<div class="box-left">
+						<i class="fas fa-book-open"></i>
 					</div>
-
-					<div class="col-md-8 col-lg-8 col-xs-8 content-admin">
-						<p class="line-all"><i>Total(s): <?=count($chapter)?></i></p>
-						<p class="line-on"><i>Online(s): <?=$p?></i></p>
-						<p class="line-off"><i>Offline(s): <?=count($chapter) - $p?></i></p>
+					<div class="box-right">
+						<div class="content-admin">
+							<p class="line-all"><i>Total(s): <?=count($chapter)?></i></p>
+							<p class="line-on"><i>Online(s): <?=$p?></i></p>
+							<p class="line-off"><i>Offline(s): <?=count($chapter) - $p?></i></p>
+						</div>
 					</div>
 				</div>
+			</a>
+		</div>
 
-			</div>
-		</a>
+		<!-- SECTION comments  -->
+		<div class="main-box">
+			<a href="<?=URL . '?admin/comment'?>">
+				<?php $s = 0;
+				for ($i = 0; $i < count($comment); $i++) {
+					if (intval($comment[$i]->validate) === 0) {
+						$s++;
+					}
+				}?>	
+				<div class="box">
+					<div class="box-left">
+						<i class="fas fa-comments"></i>
+					</div>
+					<div class="box-right">
+						<div class="content-admin">
+							<p class="line-all"><i>Total(s): <?=count($comment)?></i></p>
+							<p class="line-off"><i>Signalé(s): <?=$s?></i></p>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<!-- SECTION about  -->
+		<div class="main-box">
+			<a href="<?=URL . '?admin/about'?>">
+				<div class="box">
+					<div class="box-left">
+						<i class="fas fa-user-edit"></i>
+					</div>
+					<div class="box-right">
+						<div class="content-admin">
+							<p>Gérer...</p>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<!-- SECTION members  -->
+		<div class="main-box">
+			<a href="<?=URL . '?admin/home'?>">
+				<div class="box">
+					<div class="box-left">
+						<i class="fas fa-users"></i>
+					</div>
+					<div class="box-right">
+						<div class="content-admin">
+							<p class="line-all"><i>Totals membres: <?=count($members)?></i></p>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
 	</div>
-
-	<!-- SECTION comments  -->
-<div class="col-lg-4 col-md-6 col-xs-12">
-		<a href="<?=URL . '/admin/comment'?>">
-			<div class="box">
-
-				<div class="col-md-12 col-lg-12 col-xs-12 title-admin">
-						<h4>Commentaires</h4>
+	<aside class="aside-admin">
+		<div class="title-admin title">
+			<h3>Dernières inscriptions</h3>
+		</div>
+		<?php
+		foreach ($members as $key => $k) { 
+			if($k->id != '13') {?>
+				<div class="aside">
+					<article class="aside-members">
+						<div class="content-members">
+							<p><i class="fas fa-bookmark"></i> <?=$k->user ?> (<?=$k->date ?>)</p>
+							<p>Email : <?=$k->mail ?></p>
+						</div>
+					</article>
 				</div>
-					<?php $s = 0;
-for ($i = 0; $i < count($comment); $i++) {
-	if (intval($comment[$i]->validate) === 0) {
-		$s++;
-	}
-}?>
-				<div class="col-md-12 col-lg-12 col-xs-12 detail-admin">
-					<div class="col-md-4 col-lg-4 col-xs-4 icon-admin">
-						<p><i class="fas fa-comments"></i></p>
-					</div>
-
-					<div class="col-md-8 col-lg-8 col-xs-8 content-admin">
-						<p class="line-all"><i>Total(s): <?=count($comment)?></i></p>
-						<p class="line-off"><i>Signalé(s): <?=$s?></i></p>
-					</div>
-				</div>
-
-			</div>
-		</a>
-	</div>
-
-	<!-- SECTION about  -->
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<a href="<?=URL . '/admin/about'?>">
-			<div class="box">
-
-				<div class="col-md-12 col-lg-12 col-xs-12 title-admin">
-						<h4>Gérer ma présentation</h4>
-				</div>
-
-				<div class="col-md-12 col-lg-12 col-xs-12 detail-admin">
-					<div class="col-md-4 col-lg-4 col-xs-4 icon-admin">
-						<p><i class="fas fa-user-edit"></i></p>
-					</div>
-
-					<div class="col-md-8 col-lg-8 col-xs-8 content-admin">
-						<p>Gérer...</p>
-					</div>
-				</div>
-
-			</div>
-		</a>
-	</div>
-
+			<?php }
+		} ?>
+	</aside>
 
 
 </div>

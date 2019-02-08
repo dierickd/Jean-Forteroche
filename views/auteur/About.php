@@ -1,11 +1,9 @@
 <?php $title_for_layout = 'L\'auteur | Jean Forteroche'?>
 
-<div class="jumbotron">
-	<div class="container">
-		<h3>Qui est Jean Forteroche ?</h3>
-	</div>
+<div class="title-home title">
+	<h3><?=($author[0]->titleJf) ? $author[0]->titleJf : 'Qui est Jean Forteroche ?';?></h3>
 </div>
 
-<div class="container" style="margin-top: 50px;">
+<article class="article-about">
 	<p><?=$author[0]->contentJf;?></p>
-</div>
+</article>

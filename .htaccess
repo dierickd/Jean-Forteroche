@@ -2,21 +2,22 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTPS} !=on
+
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# RewriteRule ^(.*)$ $1 [NC]
+
+# RewriteRule ^livre/([0-9]+)$ index.php?action=chapter&id=$1 [NC,L]
+# RewriteRule ^episode/([0-9]+)$ index.php?action=episode&id=$1 [NC,L]
+# RewriteRule ^about$ index.php?action=about [NC,L]
+# RewriteRule ^library$ index.php?action=library [NC,L]
+# RewriteRule ^admin$ index.php?action=admin [NC,L]
+
+# RewriteRule ^admin/connect$ index.php?action=admin&layout=connect [NC,L]
+# RewriteRule ^admin/dashboard$ index.php?action=admin&layout=dashboard [NC,L]
+# RewriteRule ^admin/library$ index.php?action=admin&layout=library [NC,L]
+# RewriteRule ^admin/chapter$ index.php?action=admin&layout=chapter [NC,L]
 
 
-RewriteRule (.*) index.php/$1 [NC,L]
-
-RewriteRule ^livre/([0-9]+)$ index.php?action=chapter&id=$1 [NC,L]
-RewriteRule ^episode/([0-9]+)$ index.php?action=episode&id=$1 [NC,L]
-RewriteRule ^about$ index.php?action=about [NC,L]
-RewriteRule ^library$ index.php?action=library [NC,L]
-RewriteRule ^admin$ index.php?action=admin [NC,L]
-
-RewriteRule ^admin/connect$ index.php?action=admin&layout=connect [NC,L]
-RewriteRule ^admin/dashboard$ index.php?action=admin&layout=dashboard [NC,L]
-RewriteRule ^admin/library$ index.php?action=admin&layout=library [NC,L]
-RewriteRule ^admin/chapter$ index.php?action=admin&layout=chapter [NC,L]
-
-
-RewriteRule ^home$ index.php [NC,L]
-RewriteRule ^/Jean-Forteroche/(.*)$ /Jean-Forteroche/index.php [L]
+# RewriteRule ^home$ index.php [NC,L]
+# RewriteRule ^/Jean-Forteroche/(.*)$ /Jean-Forteroche/index.php [L]

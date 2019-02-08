@@ -1,5 +1,5 @@
 <?php
-class model {
+class Model {
 
 	static $connections = array();
 	public $conf = 'default';
@@ -12,6 +12,7 @@ class model {
 			$this->db = $conf;
 			return true;
 		}
+
 		try {
 			$pdo = new PDO('mysql:host=' . $conf['host'] . ';dbname=' . $conf['database'] . ';charset=utf8', $conf['login'], $conf['password']);
 			Model::$connections[$this->conf] = $pdo;
@@ -46,8 +47,12 @@ class model {
 		return $pre->fetchAll(PDO::FETCH_OBJ);
 	}
 
-	public function controlExists($req, $table, $cond) {
-		$sql = 'SELECT ' . $req . ' FROM ' . $table . ' WHERE nbArt=' . $cond['conditions']['where'];
+	public function controlExists($req, $table, $cond,$what=null) {
+		if($what){
+			$sql = 'SELECT ' . $req . ' FROM ' . $table . ' WHERE '.$what.'="' . $cond['conditions']['where'].'"';
+		}else{
+			$sql = 'SELECT ' . $req . ' FROM ' . $table . ' WHERE nbArt="' . $cond['conditions']['where'].'"';
+		}
 		$pre = $this->db->prepare($sql);
 		$pre->execute();
 		return $pre->fetch(PDO::FETCH_OBJ);
@@ -79,6 +84,19 @@ class model {
 		));
 		$pre->closeCursor();
 	}
+	//insert users
+	public function add_user($req) {
+		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+		$sql = 'INSERT INTO ' . $req;
+		$pre = $this->db->prepare($sql);
+		$pre->execute(array(
+			'user' => $_POST['login'],
+			'pass' => $password,
+			'mail' => $_POST['email'],
+		));
+		$pre->closeCursor();
+	}
+	
 	public function notify($req) {
 		$sql = 'UPDATE ' . $req;
 		$pre = $this->db->prepare($sql);

@@ -15,6 +15,5 @@ tinymce.init({
 
   //définition de la hauteur et de la largeur
   width: "100%",
-	height: "100%",
 
 });

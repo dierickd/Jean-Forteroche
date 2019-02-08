@@ -1,31 +1,40 @@
 <?php $title_for_layout = 'Liste des chapitres | Jean Forteroche'?>
 
-<div class="jumbotron">
-	<div class="container">
-		<?php
-$nb = 0;
-for ($i = 0; $i < count($chapter); $i++) {
-	if (intval($chapter[$i]->online) === 1) {
-		$nb++;
-	}
-}?>
+<div class="main-home">
+	<div class="title-home title">
+	<?php
+	$nb = 0;
+	for ($i = 0; $i < count($chapter); $i++) {
+		if (intval($chapter[$i]->online) === 1) {
+			$nb++;
+		}
+	}?>
 		<h3><?=$nb?> chapitres sont disponibles</h3>
 	</div>
-</div>
-
-<div class="container">
-
-<?php
-$title_for_layout = 'Chapitres | Jean-Forteroche';
+	<?php
 for ($i = 0; $i < count($chapter); $i++) {
 	if (intval($chapter[$i]->online) === 1) {?>
-		<div class="pageAllChapter">
-			<h3><?=$chapter[$i]->titleChapter?></h3>
-			<h4><i>Chapitre <?=$chapter[$i]->nbArt;?></i></h4>
-			<p><i>Publié le <?=$chapter[$i]->date?></i></p>
-			<p class="text-justify"><?=substr($chapter[$i]->contentChapter, 0, 450) . ' (...)';?></p>
-			<a href=" <?=URL . '/pages/chapter/' . $chapter[$i]->id?> ">Lire la suite &rarr;</a>
-		</div>
+		<article class="article">
+			<a href=" <?=URL . '?pages/chapter/' . $chapter[$i]->id?> " class="article-link">
+				<div class="article-number">
+					<p>Chapitre <?=$chapter[$i]->nbArt;?></p>
+				</div>
+			</a>
+			<div class="article-main">
+				<div class="article-title">
+					<a href=" <?=URL . '?pages/chapter/' . $chapter[$i]->id?> ">
+						<h3><?=$chapter[$i]->titleChapter?></h3>
+					</a>
+				</div>
+				<div class="article-content">
+					<p><?=substr($chapter[$i]->contentChapter, 0, 300) . '...';?></p>
+				</div>
+				<div class="article-footer">
+					<i class="fas fa-user-edit"></i> <?=$chapter[$i]->authorChapter;?>
+					<i class="fas fa-calendar-alt"></i> <?=$chapter[$i]->date;?>
+				</div>
+			</div>
+		</article>
 	<?php }
 }?>
 </div>

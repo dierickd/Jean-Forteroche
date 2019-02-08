@@ -1,6 +1,6 @@
 <?php
 session_start();
-define('URL', isset($_SERVER['HTTPS']) ? "https" : "http" . "://$_SERVER[HTTP_HOST]" . dirname($_SERVER['SCRIPT_NAME'])); // retour la racine
+define('URL', isset($_SERVER['HTTPS']) ? "https"."://$_SERVER[HTTP_HOST]" . dirname($_SERVER['SCRIPT_NAME']) : "http"."://$_SERVER[HTTP_HOST]".dirname($_SERVER['SCRIPT_NAME'])); // retour la racine
 
 define('RACINE', dirname(__FILE__)); // renvoi: ...la racine du site
 define('DS', DIRECTORY_SEPARATOR); // renvoi: \
@@ -14,4 +14,3 @@ define('CORE', RACINE . DS . 'core' . DS); //mène au dossier core
 require CORE . 'includes.php';
 
 new Dispatcher();
-
